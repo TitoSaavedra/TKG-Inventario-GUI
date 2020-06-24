@@ -1,0 +1,13 @@
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\bin\Debug\TKG Inventario.exe.config
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\bin\Debug\TKG Inventario.exe
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\bin\Debug\TKG Inventario.pdb
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\obj\Debug\TKG Inventario.csprojAssemblyReference.cache
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\obj\Debug\TKG_Inventario.Properties.Resources.resources
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\obj\Debug\TKG Inventario.csproj.GenerateResource.cache
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\obj\Debug\TKG Inventario.csproj.CoreCompileInputs.cache
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\obj\Debug\TKG Inventario.exe
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\obj\Debug\TKG Inventario.pdb
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\obj\Debug\TKG_Inventario.Vista.MainWindow.resources
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\obj\Debug\TKG Inventario.csproj.CopyComplete
+C:\Users\TitoS\source\repos\TKG Inventario\TKG Inventario\obj\Debug\TKG_Inventario.Vista.Login.resources
