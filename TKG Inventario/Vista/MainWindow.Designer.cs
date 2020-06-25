@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.botonCerrarSesion = new FontAwesome.Sharp.IconButton();
             this.botonCrudCompraProductos = new FontAwesome.Sharp.IconButton();
             this.botonCrudProductos = new FontAwesome.Sharp.IconButton();
             this.botonCrudFamiliaProductos = new FontAwesome.Sharp.IconButton();
@@ -48,13 +50,13 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(250, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(950, 650);
+            this.panelContenedor.Size = new System.Drawing.Size(950, 620);
             this.panelContenedor.TabIndex = 2;
-            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.panelMenu.Controls.Add(this.botonCerrarSesion);
             this.panelMenu.Controls.Add(this.botonCrudCompraProductos);
             this.panelMenu.Controls.Add(this.botonCrudProductos);
             this.panelMenu.Controls.Add(this.botonCrudFamiliaProductos);
@@ -65,8 +67,31 @@
             this.panelMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(250, 650);
+            this.panelMenu.Size = new System.Drawing.Size(250, 620);
             this.panelMenu.TabIndex = 0;
+            // 
+            // botonCerrarSesion
+            // 
+            this.botonCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.botonCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.botonCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonCerrarSesion.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.botonCerrarSesion.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.botonCerrarSesion.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.botonCerrarSesion.IconSize = 30;
+            this.botonCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.botonCerrarSesion.Location = new System.Drawing.Point(0, 560);
+            this.botonCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 10, 3, 5);
+            this.botonCerrarSesion.Name = "botonCerrarSesion";
+            this.botonCerrarSesion.Rotation = 0D;
+            this.botonCerrarSesion.Size = new System.Drawing.Size(250, 60);
+            this.botonCerrarSesion.TabIndex = 10;
+            this.botonCerrarSesion.Text = "Cerrar Sesión";
+            this.botonCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.botonCerrarSesion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.botonCerrarSesion.UseVisualStyleBackColor = true;
+            this.botonCerrarSesion.Click += new System.EventHandler(this.botonCerrarSesion_Click);
             // 
             // botonCrudCompraProductos
             // 
@@ -89,6 +114,7 @@
             this.botonCrudCompraProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botonCrudCompraProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.botonCrudCompraProductos.UseVisualStyleBackColor = true;
+            this.botonCrudCompraProductos.Click += new System.EventHandler(this.botonCrudCompraProductos_Click);
             // 
             // botonCrudProductos
             // 
@@ -111,6 +137,7 @@
             this.botonCrudProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botonCrudProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.botonCrudProductos.UseVisualStyleBackColor = true;
+            this.botonCrudProductos.Click += new System.EventHandler(this.botonCrudProductos_Click);
             // 
             // botonCrudFamiliaProductos
             // 
@@ -133,6 +160,7 @@
             this.botonCrudFamiliaProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botonCrudFamiliaProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.botonCrudFamiliaProductos.UseVisualStyleBackColor = true;
+            this.botonCrudFamiliaProductos.Click += new System.EventHandler(this.botonCrudFamiliaProductos_Click);
             // 
             // botonCrudUsuarios
             // 
@@ -155,6 +183,7 @@
             this.botonCrudUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botonCrudUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.botonCrudUsuarios.UseVisualStyleBackColor = true;
+            this.botonCrudUsuarios.Click += new System.EventHandler(this.botonCrudUsuarios_Click);
             // 
             // botonSistema
             // 
@@ -177,6 +206,7 @@
             this.botonSistema.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botonSistema.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.botonSistema.UseVisualStyleBackColor = true;
+            this.botonSistema.Click += new System.EventHandler(this.botonSistema_Click);
             // 
             // panelContenedorNombre
             // 
@@ -205,13 +235,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 650);
+            this.ClientSize = new System.Drawing.Size(1200, 620);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "MainWindow";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelContenedorNombre.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconoMenu)).EndInit();
@@ -229,5 +259,6 @@
         private FontAwesome.Sharp.IconButton botonCrudFamiliaProductos;
         private FontAwesome.Sharp.IconButton botonCrudUsuarios;
         private FontAwesome.Sharp.IconButton botonSistema;
+        private FontAwesome.Sharp.IconButton botonCerrarSesion;
     }
 }

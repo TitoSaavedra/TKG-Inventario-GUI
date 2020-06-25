@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,39 +16,21 @@ namespace TKG_Inventario.Vista
         {
             InitializeComponent();
         }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void iconoMiniminizarApp_Click(object sender, EventArgs e)
+        public event EventHandler botonIniciarSesionPresionado;
+        protected virtual void botonIniciarSesion_Clicked(EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            var handler = botonIniciarSesionPresionado;
+            if (handler != null)
+                handler(this, e);
+        }
+        private void botonIniciarSesion_Click(object sender, EventArgs e)
+        {
+            botonIniciarSesion_Clicked(e);
         }
 
-        private void panelBarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        private void labelDescripcion_Click(object sender, EventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
 
-        private void iconoMaximizarApp_Click_1(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
-
-        private void iconoCerrarApp_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
-
-
 }
