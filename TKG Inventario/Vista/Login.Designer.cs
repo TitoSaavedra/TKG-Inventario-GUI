@@ -215,7 +215,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(404, 19);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Tito Saavedra - Pablo Ahumada - Leandro Cruz";
+            this.label1.Text = "- Pablo Ahumada - Leandro Cruz - Tito Saavedra  -";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // labelBienvenido

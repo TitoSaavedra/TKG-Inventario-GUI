@@ -16,5 +16,6 @@ namespace TKG_Inventario.Vista
         {
             InitializeComponent();
         }
+
     }
 }

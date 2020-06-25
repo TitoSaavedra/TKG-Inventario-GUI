@@ -32,16 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelPrincipalSistema = new System.Windows.Forms.Panel();
-            this.dtaGridProductosBajoStock = new System.Windows.Forms.DataGridView();
-            this.labelBajoStock = new System.Windows.Forms.Label();
-            this.labelHora = new System.Windows.Forms.Label();
-            this.labelFecha = new System.Windows.Forms.Label();
-            this.timerHoraFech = new System.Windows.Forms.Timer(this.components);
-            this.labelNombreVentana = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelFecha = new System.Windows.Forms.Label();
+            this.labelHora = new System.Windows.Forms.Label();
+            this.labelNombreVentana = new System.Windows.Forms.Label();
+            this.labelBajoStock = new System.Windows.Forms.Label();
+            this.dtaGridProductosBajoStock = new System.Windows.Forms.DataGridView();
+            this.timerHoraFech = new System.Windows.Forms.Timer(this.components);
             this.panelPrincipalSistema.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtaGridProductosBajoStock)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtaGridProductosBajoStock)).BeginInit();
             this.SuspendLayout();
             // 
             // panelPrincipalSistema
@@ -56,6 +56,72 @@
             this.panelPrincipalSistema.Name = "panelPrincipalSistema";
             this.panelPrincipalSistema.Size = new System.Drawing.Size(950, 620);
             this.panelPrincipalSistema.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.labelFecha, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelHora, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(552, 457);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(386, 151);
+            this.tableLayoutPanel1.TabIndex = 19;
+            // 
+            // labelFecha
+            // 
+            this.labelFecha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelFecha.AutoSize = true;
+            this.labelFecha.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.labelFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelFecha.Location = new System.Drawing.Point(3, 75);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(380, 29);
+            this.labelFecha.TabIndex = 17;
+            this.labelFecha.Text = "fecha";
+            this.labelFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelHora
+            // 
+            this.labelHora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelHora.AutoSize = true;
+            this.labelHora.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelHora.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelHora.Location = new System.Drawing.Point(3, 0);
+            this.labelHora.Name = "labelHora";
+            this.labelHora.Size = new System.Drawing.Size(380, 75);
+            this.labelHora.TabIndex = 16;
+            this.labelHora.Text = "00:00:00";
+            this.labelHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelNombreVentana
+            // 
+            this.labelNombreVentana.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelNombreVentana.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNombreVentana.Location = new System.Drawing.Point(0, 0);
+            this.labelNombreVentana.Name = "labelNombreVentana";
+            this.labelNombreVentana.Size = new System.Drawing.Size(950, 18);
+            this.labelNombreVentana.TabIndex = 18;
+            this.labelNombreVentana.Text = "Sistema de gestión y control de bodega e inventario";
+            this.labelNombreVentana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelBajoStock
+            // 
+            this.labelBajoStock.AutoSize = true;
+            this.labelBajoStock.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBajoStock.Location = new System.Drawing.Point(12, 28);
+            this.labelBajoStock.Name = "labelBajoStock";
+            this.labelBajoStock.Size = new System.Drawing.Size(325, 29);
+            this.labelBajoStock.TabIndex = 1;
+            this.labelBajoStock.Text = "Productos con bajo Stock:";
             // 
             // dtaGridProductosBajoStock
             // 
@@ -91,77 +157,10 @@
             this.dtaGridProductosBajoStock.Size = new System.Drawing.Size(921, 273);
             this.dtaGridProductosBajoStock.TabIndex = 0;
             // 
-            // labelBajoStock
-            // 
-            this.labelBajoStock.AutoSize = true;
-            this.labelBajoStock.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBajoStock.Location = new System.Drawing.Point(12, 28);
-            this.labelBajoStock.Name = "labelBajoStock";
-            this.labelBajoStock.Size = new System.Drawing.Size(325, 29);
-            this.labelBajoStock.TabIndex = 1;
-            this.labelBajoStock.Text = "Productos con bajo Stock:";
-            // 
-            // labelHora
-            // 
-            this.labelHora.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelHora.AutoSize = true;
-            this.labelHora.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelHora.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelHora.Location = new System.Drawing.Point(3, 0);
-            this.labelHora.Name = "labelHora";
-            this.labelHora.Size = new System.Drawing.Size(380, 75);
-            this.labelHora.TabIndex = 16;
-            this.labelHora.Text = "00:00:00";
-            this.labelHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelFecha
-            // 
-            this.labelFecha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelFecha.AutoSize = true;
-            this.labelFecha.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.labelFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelFecha.Location = new System.Drawing.Point(3, 75);
-            this.labelFecha.Name = "labelFecha";
-            this.labelFecha.Size = new System.Drawing.Size(380, 29);
-            this.labelFecha.TabIndex = 17;
-            this.labelFecha.Text = "fecha";
-            this.labelFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // timerHoraFech
             // 
             this.timerHoraFech.Enabled = true;
             this.timerHoraFech.Tick += new System.EventHandler(this.timerHoraFech_Tick);
-            // 
-            // labelNombreVentana
-            // 
-            this.labelNombreVentana.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelNombreVentana.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreVentana.Location = new System.Drawing.Point(0, 0);
-            this.labelNombreVentana.Name = "labelNombreVentana";
-            this.labelNombreVentana.Size = new System.Drawing.Size(950, 18);
-            this.labelNombreVentana.TabIndex = 18;
-            this.labelNombreVentana.Text = "Sistema de gestión y control de bodega e inventario";
-            this.labelNombreVentana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.labelFecha, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelHora, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(552, 457);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(386, 151);
-            this.tableLayoutPanel1.TabIndex = 19;
             // 
             // VentanaSistema
             // 
@@ -174,9 +173,9 @@
             this.Text = "Sistema";
             this.panelPrincipalSistema.ResumeLayout(false);
             this.panelPrincipalSistema.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtaGridProductosBajoStock)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtaGridProductosBajoStock)).EndInit();
             this.ResumeLayout(false);
 
         }

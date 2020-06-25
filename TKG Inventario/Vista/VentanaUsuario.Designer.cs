@@ -28,42 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
+            FontAwesome.Sharp.IconButton btnRegistrarUsuario;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            FontAwesome.Sharp.IconButton btnRegistrarUsuario;
             this.dtaGridUsuario = new System.Windows.Forms.DataGridView();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.labelUusario = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiarFormUsuario = new FontAwesome.Sharp.IconButton();
+            this.btnEliminarUsuario = new FontAwesome.Sharp.IconButton();
+            this.btnModificarUsuario = new FontAwesome.Sharp.IconButton();
             this.labelNombreVentana = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.labelMensaje = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             btnRegistrarUsuario = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtaGridUsuario)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnRegistrarUsuario
+            // 
+            btnRegistrarUsuario.AutoSize = true;
+            btnRegistrarUsuario.BackColor = System.Drawing.Color.Lime;
+            btnRegistrarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnRegistrarUsuario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            btnRegistrarUsuario.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnRegistrarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            btnRegistrarUsuario.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            btnRegistrarUsuario.IconColor = System.Drawing.Color.Black;
+            btnRegistrarUsuario.IconSize = 32;
+            btnRegistrarUsuario.Location = new System.Drawing.Point(10, 3);
+            btnRegistrarUsuario.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            btnRegistrarUsuario.Name = "btnRegistrarUsuario";
+            btnRegistrarUsuario.Rotation = 0D;
+            btnRegistrarUsuario.Size = new System.Drawing.Size(213, 42);
+            btnRegistrarUsuario.TabIndex = 25;
+            btnRegistrarUsuario.Text = "Ingresar";
+            btnRegistrarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            btnRegistrarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            btnRegistrarUsuario.UseVisualStyleBackColor = false;
             // 
             // dtaGridUsuario
             // 
@@ -96,7 +119,7 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dtaGridUsuario.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtaGridUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtaGridUsuario.Size = new System.Drawing.Size(901, 231);
+            this.dtaGridUsuario.Size = new System.Drawing.Size(915, 231);
             this.dtaGridUsuario.TabIndex = 1;
             // 
             // txtPass
@@ -159,29 +182,6 @@
             this.labelUusario.TabIndex = 20;
             this.labelUusario.Text = "Nombre:";
             // 
-            // btnRegistrarUsuario
-            // 
-            btnRegistrarUsuario.AutoSize = true;
-            btnRegistrarUsuario.BackColor = System.Drawing.Color.Lime;
-            btnRegistrarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnRegistrarUsuario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            btnRegistrarUsuario.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnRegistrarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            btnRegistrarUsuario.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            btnRegistrarUsuario.IconColor = System.Drawing.Color.Black;
-            btnRegistrarUsuario.IconSize = 32;
-            btnRegistrarUsuario.Location = new System.Drawing.Point(10, 3);
-            btnRegistrarUsuario.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            btnRegistrarUsuario.Name = "btnRegistrarUsuario";
-            btnRegistrarUsuario.Rotation = 0D;
-            btnRegistrarUsuario.Size = new System.Drawing.Size(210, 42);
-            btnRegistrarUsuario.TabIndex = 25;
-            btnRegistrarUsuario.Text = "Ingresar";
-            btnRegistrarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            btnRegistrarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            btnRegistrarUsuario.UseVisualStyleBackColor = false;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -191,86 +191,86 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.iconButton3, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.iconButton2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.iconButton1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnLimpiarFormUsuario, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnEliminarUsuario, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnModificarUsuario, 1, 0);
             this.tableLayoutPanel1.Controls.Add(btnRegistrarUsuario, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 223);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 223);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(921, 48);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(934, 48);
             this.tableLayoutPanel1.TabIndex = 26;
             // 
-            // iconButton1
+            // btnLimpiarFormUsuario
             // 
-            this.iconButton1.AutoSize = true;
-            this.iconButton1.BackColor = System.Drawing.Color.Yellow;
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton1.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(240, 3);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Rotation = 0D;
-            this.iconButton1.Size = new System.Drawing.Size(210, 42);
-            this.iconButton1.TabIndex = 26;
-            this.iconButton1.Text = "Modificar";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnLimpiarFormUsuario.AutoSize = true;
+            this.btnLimpiarFormUsuario.BackColor = System.Drawing.Color.Silver;
+            this.btnLimpiarFormUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLimpiarFormUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarFormUsuario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnLimpiarFormUsuario.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarFormUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLimpiarFormUsuario.IconChar = FontAwesome.Sharp.IconChar.Redo;
+            this.btnLimpiarFormUsuario.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarFormUsuario.IconSize = 32;
+            this.btnLimpiarFormUsuario.Location = new System.Drawing.Point(709, 3);
+            this.btnLimpiarFormUsuario.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnLimpiarFormUsuario.Name = "btnLimpiarFormUsuario";
+            this.btnLimpiarFormUsuario.Rotation = 0D;
+            this.btnLimpiarFormUsuario.Size = new System.Drawing.Size(215, 42);
+            this.btnLimpiarFormUsuario.TabIndex = 28;
+            this.btnLimpiarFormUsuario.Text = "Limpiar";
+            this.btnLimpiarFormUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiarFormUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiarFormUsuario.UseVisualStyleBackColor = false;
             // 
-            // iconButton2
+            // btnEliminarUsuario
             // 
-            this.iconButton2.AutoSize = true;
-            this.iconButton2.BackColor = System.Drawing.Color.Red;
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton2.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.Location = new System.Drawing.Point(470, 3);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Rotation = 0D;
-            this.iconButton2.Size = new System.Drawing.Size(210, 42);
-            this.iconButton2.TabIndex = 27;
-            this.iconButton2.Text = "Eliminar";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.btnEliminarUsuario.AutoSize = true;
+            this.btnEliminarUsuario.BackColor = System.Drawing.Color.Red;
+            this.btnEliminarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEliminarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarUsuario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnEliminarUsuario.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEliminarUsuario.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.btnEliminarUsuario.IconColor = System.Drawing.Color.Black;
+            this.btnEliminarUsuario.IconSize = 32;
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(476, 3);
+            this.btnEliminarUsuario.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
+            this.btnEliminarUsuario.Rotation = 0D;
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(213, 42);
+            this.btnEliminarUsuario.TabIndex = 27;
+            this.btnEliminarUsuario.Text = "Eliminar";
+            this.btnEliminarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminarUsuario.UseVisualStyleBackColor = false;
             // 
-            // iconButton3
+            // btnModificarUsuario
             // 
-            this.iconButton3.AutoSize = true;
-            this.iconButton3.BackColor = System.Drawing.Color.Silver;
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton3.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconSize = 32;
-            this.iconButton3.Location = new System.Drawing.Point(700, 3);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Rotation = 0D;
-            this.iconButton3.Size = new System.Drawing.Size(211, 42);
-            this.iconButton3.TabIndex = 28;
-            this.iconButton3.Text = "Limpiar";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = false;
+            this.btnModificarUsuario.AutoSize = true;
+            this.btnModificarUsuario.BackColor = System.Drawing.Color.Yellow;
+            this.btnModificarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnModificarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarUsuario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnModificarUsuario.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnModificarUsuario.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.btnModificarUsuario.IconColor = System.Drawing.Color.Black;
+            this.btnModificarUsuario.IconSize = 32;
+            this.btnModificarUsuario.Location = new System.Drawing.Point(243, 3);
+            this.btnModificarUsuario.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.btnModificarUsuario.Name = "btnModificarUsuario";
+            this.btnModificarUsuario.Rotation = 0D;
+            this.btnModificarUsuario.Size = new System.Drawing.Size(213, 42);
+            this.btnModificarUsuario.TabIndex = 26;
+            this.btnModificarUsuario.Text = "Modificar";
+            this.btnModificarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnModificarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnModificarUsuario.UseVisualStyleBackColor = false;
             // 
             // labelNombreVentana
             // 
@@ -312,35 +312,57 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Antecedentes del usuario:";
             // 
-            // textBox1
+            // comboBox2
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(92)))), ((int)(((byte)(43)))));
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.ForeColor = System.Drawing.Color.White;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(640, 44);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(259, 31);
+            this.comboBox2.TabIndex = 37;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(92)))), ((int)(((byte)(43)))));
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(640, 97);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(259, 31);
+            this.comboBox1.TabIndex = 36;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(92)))), ((int)(((byte)(43)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(14, 151);
-            this.textBox1.MaximumSize = new System.Drawing.Size(258, 30);
-            this.textBox1.MinimumSize = new System.Drawing.Size(258, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(258, 30);
-            this.textBox1.TabIndex = 25;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(636, 77);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 19);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Tipo de usuario:";
             // 
-            // label1
+            // label8
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(9, 130);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 19);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Nombre de usuario:";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(636, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 19);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Estado:";
             // 
             // textBox2
             // 
@@ -420,31 +442,35 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "Correo:";
             // 
-            // label7
+            // textBox1
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(636, 77);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 19);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "Tipo de usuario:";
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(92)))), ((int)(((byte)(43)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.textBox1.Location = new System.Drawing.Point(14, 151);
+            this.textBox1.MaximumSize = new System.Drawing.Size(258, 30);
+            this.textBox1.MinimumSize = new System.Drawing.Size(258, 30);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(258, 30);
+            this.textBox1.TabIndex = 25;
             // 
-            // label8
+            // label1
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(636, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 19);
-            this.label8.TabIndex = 32;
-            this.label8.Text = "Estado:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(9, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 19);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Nombre de usuario:";
             // 
             // labelMensaje
             // 
@@ -490,38 +516,12 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(17, 277);
+            this.groupBox2.Location = new System.Drawing.Point(3, 277);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(921, 299);
+            this.groupBox2.Size = new System.Drawing.Size(935, 299);
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listado de usuarios:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(92)))), ((int)(((byte)(43)))));
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(640, 97);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(259, 31);
-            this.comboBox1.TabIndex = 36;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(92)))), ((int)(((byte)(43)))));
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.ForeColor = System.Drawing.Color.White;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(640, 44);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(259, 31);
-            this.comboBox2.TabIndex = 37;
             // 
             // VentanaUsuario
             // 
@@ -556,9 +556,9 @@
         internal System.Windows.Forms.TextBox txtUser;
         internal System.Windows.Forms.Label labelUusario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnLimpiarFormUsuario;
+        private FontAwesome.Sharp.IconButton btnEliminarUsuario;
+        private FontAwesome.Sharp.IconButton btnModificarUsuario;
         private System.Windows.Forms.Label labelNombreVentana;
         private System.Windows.Forms.GroupBox groupBox1;
         internal System.Windows.Forms.TextBox textBox1;

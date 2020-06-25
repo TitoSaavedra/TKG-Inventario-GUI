@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FontAwesome.Sharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,20 +19,11 @@ namespace TKG_Inventario.Vista
         VentanaFamiliaProducto ventanaFamiliaProducto = new VentanaFamiliaProducto();
         VentanaProducto ventanaProducto = new VentanaProducto();
         VentanaCompraProducto ventanaCompraProducto = new VentanaCompraProducto();
-        private struct PowerBI
-        {
-            public static Color color0 = Color.FromArgb(0, 122, 204);
-            public static Color color1 = Color.FromArgb(1, 184, 170);
-            public static Color color2 = Color.FromArgb(40, 56, 60);
-            public static Color color3 = Color.FromArgb(253, 98, 94);
-            public static Color color4 = Color.FromArgb(242, 200, 15);
-            public static Color color5 = Color.FromArgb(95, 107, 109);
-            public static Color color6 = Color.FromArgb(138, 212, 235);
-        }
 
         public MainWindow()
         {
             InitializeComponent();
+            this.cambiaColorBoton(this.botonSistema);
             this.AbrirFormEnPanel(this.ventaSistema);
         }
 
@@ -45,6 +37,7 @@ namespace TKG_Inventario.Vista
         private void botonCerrarSesion_Click(object sender, EventArgs e)
         {
             this.AbrirFormEnPanel(this.ventaSistema);
+            this.cambiaColorBoton(this.botonSistema);
             botonCerrarSesion_Clicked(e);
         }
 
@@ -92,28 +85,72 @@ namespace TKG_Inventario.Vista
         }
         private void botonSistema_Click(object sender, EventArgs e)
         {
-            this.AbrirFormEnPanel(this.ventaSistema);
+            if (!(this.panelContenedor.Contains(this.ventaSistema)))
+            {
+                this.cambiaColorBoton(this.botonSistema);
+                this.AbrirFormEnPanel(this.ventaSistema);
+            }
         }
 
         private void botonCrudUsuarios_Click(object sender, EventArgs e)
         {
-            this.AbrirFormEnPanel(this.ventanaUsuario);
+            if (!(this.panelContenedor.Contains(this.ventanaUsuario)))
+            {
+                this.cambiaColorBoton(this.botonCrudUsuarios);
+                this.AbrirFormEnPanel(this.ventanaUsuario);
+            }
         }
 
         private void botonCrudFamiliaProductos_Click(object sender, EventArgs e)
         {
-            this.AbrirFormEnPanel(this.ventanaFamiliaProducto);
+            if (!(this.panelContenedor.Contains(this.ventanaFamiliaProducto)))
+            {
+                this.cambiaColorBoton(this.botonCrudFamiliaProductos);
+                this.AbrirFormEnPanel(this.ventanaFamiliaProducto);
+            }
         }
 
         private void botonCrudProductos_Click(object sender, EventArgs e)
         {
-            this.AbrirFormEnPanel(this.ventanaProducto);
+            if (!(this.panelContenedor.Contains(this.ventanaProducto)))
+            {
+                this.cambiaColorBoton(this.botonCrudProductos);
+                this.AbrirFormEnPanel(this.ventanaProducto);
+            }
         }
 
         private void botonCrudCompraProductos_Click(object sender, EventArgs e)
         {
-            this.AbrirFormEnPanel(this.ventanaCompraProducto);
+            if (!(this.panelContenedor.Contains(this.ventanaCompraProducto)))
+            {
+                this.cambiaColorBoton(this.botonCrudCompraProductos);
+                this.AbrirFormEnPanel(this.ventanaCompraProducto);
+            }
         }
 
+        private void cambiaColorBoton(IconButton btn)
+        {
+            resetColorBotones();
+            btn.ForeColor = Color.FromArgb(216, 92, 43);
+            btn.IconColor = Color.FromArgb(216, 92, 43);
+        }
+        private void resetColorBotones()
+        {
+            //boton sistema
+            this.botonSistema.ForeColor = Color.FromArgb(255, 255, 255);
+            this.botonSistema.IconColor = Color.FromArgb(255, 255, 255);
+            //boton usuarios
+            this.botonCrudUsuarios.ForeColor = Color.FromArgb(255, 255, 255);
+            this.botonCrudUsuarios.IconColor = Color.FromArgb(255, 255, 255);
+            //boton familia productos
+            this.botonCrudFamiliaProductos.ForeColor = Color.FromArgb(255, 255, 255);
+            this.botonCrudFamiliaProductos.IconColor = Color.FromArgb(255, 255, 255);
+            //boton productos
+            this.botonCrudProductos.ForeColor = Color.FromArgb(255, 255, 255);
+            this.botonCrudProductos.IconColor = Color.FromArgb(255, 255, 255);
+            //boton compra productos
+            this.botonCrudCompraProductos.ForeColor = Color.FromArgb(255, 255, 255);
+            this.botonCrudCompraProductos.IconColor = Color.FromArgb(255, 255, 255);
+        }
     }
 }
