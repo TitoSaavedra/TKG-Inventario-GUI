@@ -4,13 +4,13 @@
 
 Para su funcionamiento debes simplemente clonar el repositorio y abrilo con VS2019
 
-## Esquema de Base de Datos <img src="./image-README/database.svg" width="22px" title="hover text">
+## Esquema de Base de Datos <img src="./image-README/database.svg" width="22px">
 
 En función del problema de TKG, se desarrolla una solución bajo la siguiente estructura de datos
 ![Esquema de base de datos](./image-README/db.png)
 El modelo lo que busca es abarcar simplemente los módulos más básicos del sistema ERPs
 
-## Requerimientos del Sistema 🧻
+## Requerimientos del Sistema 📝
 
 ### Módulos
 
@@ -36,9 +36,9 @@ Algunas cosas importantes de mencionar, en la tabla Auditar, se registran todas 
 
 Herramienta **Visual Studio 2019**
 
-<img src="./image-README/c-logo.svg" width="60px" title="hover text">
-<img src="./image-README/mysql.svg" width="60px" title="hover text">
-<img src="./image-README/sql-server.png" width="60px" title="hover text">
+<img src="./image-README/c-logo.svg" width="60px">
+<img src="./image-README/mysql.svg" width="60px">
+<img src="./image-README/sql-server.png" width="60px">
 
 ## Autores ✒️
 
