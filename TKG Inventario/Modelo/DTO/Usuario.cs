@@ -6,23 +6,23 @@ namespace TKG_Inventario.DTO
 {
     public class Usuario: Cuenta
     {
-        public Usuario(string rut, string nombre, string apellidoPaterno, string apellidoMaterno, string correo, int telefono, string nomUsuario, string contrasena, DateTime fechaNacimiento, int estado) : base(rut,nombre,apellidoPaterno,apellidoMaterno,correo,telefono,nomUsuario,contrasena,fechaNacimiento,estado)
+        public Usuario(int idUsuario) : base(idUsuario)
         {
-            base.Rut = rut;
-            base.Nombre = nombre;
-            base.ApellidoPaterno = apellidoPaterno;
-            base.ApellidoMaterno = apellidoMaterno;
-            base.Correo = correo;
-            base.Telefono = telefono;
-            base.NomUsuario = nomUsuario;
-            base.Contrasena = contrasena;
-            base.FechaNacimiento = fechaNacimiento;
-            base.Estado = estado;
+            base.IdUsuario = idUsuario;
         }
 
-        public override string ToString()
+
+        public Usuario(int idUsuario, string rut, string nombre, string correo, string nomUsuario, string contrasena, string estado, int idTipoUsuario)
+            : base(idUsuario, rut, nombre, correo, nomUsuario, contrasena, estado, idTipoUsuario)
         {
-            return base.ToString();
+            base.IdUsuario = idUsuario;
+            base.Rut = rut;
+            base.Nombre = nombre;
+            base.Correo = correo;
+            base.NomUsuario = nomUsuario;
+            base.Contrasena = contrasena;
+            base.Estado = estado;
+            base.IdTipoUsuario = idTipoUsuario;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Inventario
 {
@@ -88,6 +89,42 @@ namespace Inventario
             return contraseña;
         }
 
+        public void LetterNumber(int opcion,int txtLenght,int maxLenght,KeyPressEventArgs e)
+        {
+            if (txtLenght<=maxLenght || (e.KeyChar == (char)Keys.Back))
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                        {
+                            MessageBox.Show("Solo se permiten letras", "Advertencia",
+                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            e.Handled = true;
+                            return;
+                        }
+                        break;
+                    case 2:
+                        if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                        {
+                            MessageBox.Show("Solo se permiten numeros", "Advertencia",
+                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            e.Handled = true;
+                            return;
+                        }
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Maximo de caracteres alcanzado", "Advertencia",
+                                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+     
+
+        }
 
         public string LetterNumber(int opcion, int lenghMax,int maxNumero)
         {

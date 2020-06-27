@@ -10,7 +10,7 @@ namespace TKG_Inventario.DAL
 {
     public class GestorBodequero
     {
-
+        /*
         private static string path = "Archivos/Bodequeros.txt";
         private static Utilidades util = new Utilidades();
 
@@ -173,5 +173,7 @@ namespace TKG_Inventario.DAL
             Archivo.Close();
             return false;
         }
+    */
     }
+    
 }

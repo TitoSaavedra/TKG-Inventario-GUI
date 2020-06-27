@@ -10,6 +10,7 @@ namespace TKG_Inventario.DAL
 {
     public class GestorAdministrador
     {
+        /*
         private static string path = "Archivos/Administradores.txt";
         private static Utilidades util = new Utilidades();
 
@@ -173,6 +174,7 @@ namespace TKG_Inventario.DAL
             Archivo.Close();
             return false;
         }
-
+        */
     }
+   
 }

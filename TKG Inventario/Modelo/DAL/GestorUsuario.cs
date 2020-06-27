@@ -1,156 +1,132 @@
-﻿using Inventario;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
+using System.Data;
 using TKG_Inventario.DTO;
+using TKG_Inventario.Modelo;
 
 namespace TKG_Inventario.DAL
 {
     public class GestorUsuario
     {
-        private static string path = "Archivos/Usuarios.txt";
-        private static Utilidades util = new Utilidades();
+        /*
+        public Usuario Login(Usuario usuario)
+        {
+            ConexionMysql cone = new ConexionMysql();
+            cone.conectar().Open();
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                string sql = "select idUsuario, nombreUsuario, emailUsuario, rutUsuario, usuario, estadoUsuario, TipoUsuarioIdTipoUsuario from usuario where idUsuario=1 " +
+                    "and usuario="+usuario.NomUsuario+" and clave="+usuario.Contrasena;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    usuario.IdUsuario = int.Parse(reader["idUsuario"].ToString());
+                    usuario.Rut = reader["rutUsuario"].ToString();
+                    usuario.Nombre = reader["nombreUsuario"].ToString();
+                    usuario.NomUsuario = reader["usuario"].ToString();
+                    string estado="";
+                    switch (int.Parse(reader["estadoUsuario"].ToString()))
+                    {
+                        case 1:
+                            estado = "Activo";
+                            break;
+                        case 2:
+                            estado = "Inactivo";
+                            break;
+                    } 
+                    usuario.Estado = estado;
+                    usuario.IdTipoUsuario= int.Parse(reader["TipoUsuarioIdTipoUsuario"].ToString());
+                    return usuario;
+                }
+            }
+            return null;
+        }
+        */
 
         public void Ingresar(Usuario usu)
         {
-            StreamWriter Archivo = new StreamWriter(path, true);
-            Archivo.WriteLine("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", 
-                usu.Rut.Trim(), usu.Nombre.Trim(), usu.ApellidoPaterno.Trim(), usu.ApellidoMaterno.Trim(),usu.Correo.Trim(),usu.Telefono,usu.NomUsuario.Trim(),util.GetMD5Hash(usu.Contrasena.Trim()), usu.FechaNacimiento,usu.Estado);
-            Archivo.Close();
-        }
-
-        public Usuario Buscar(String nomUsuario)
-        {
-            StreamReader Archivo = File.OpenText(path);
-            string linea;
-            do
+            ConexionMysql cone = new ConexionMysql();
+            cone.conectar().Open();
+            using (MySqlCommand cmd = new MySqlCommand())
             {
-                linea = Archivo.ReadLine();
-                if (linea != null)
-                {
-                    string[] datos = linea.Split(';');
-                    if (datos[6] == nomUsuario.Trim())
-                    {
-                        Usuario usuario = new Usuario(datos[0], datos[1], datos[2], datos[3], datos[4],int.Parse(datos[5]),datos[6],datos[7],DateTime.Parse(datos[8]),int.Parse(datos[9]));
-                        Archivo.Close();
-                        return usuario;
-                    }
-                }
-            } while (linea != null);
-            Archivo.Close();
-            return null;
-        }
-
-        public Usuario BuscarPorRut(String rut)
-        {
-            StreamReader Archivo = File.OpenText(path);
-            string linea;
-            do
-            {
-                linea = Archivo.ReadLine();
-                if (linea != null)
-                {
-                    string[] datos = linea.Split(';');
-                    if (datos[0] == rut.Trim())
-                    {
-                        Usuario usuario = new Usuario(datos[0], datos[1], datos[2], datos[3], datos[4], int.Parse(datos[5]), datos[6], datos[7], DateTime.Parse(datos[8]), int.Parse(datos[9]));
-                        Archivo.Close();
-                        return usuario;
-                    }
-                }
-            } while (linea != null);
-            Archivo.Close();
-            return null;
-        }
-
-        public void Modificar(Usuario usu,Usuario usuAntiguo)
-        {
-            StreamReader Archivo = File.OpenText(path);
-            StreamWriter ArchivoTmp = new StreamWriter("Archivos/UsuariosTmp.txt", true);
-            string linea;
-            do
-            {
-                linea = Archivo.ReadLine();
-                if (linea != null)
-                {
-                    string[] datos = linea.Split(';');
-                    if ((usuAntiguo.NomUsuario == datos[6]) && (linea != null))
-                    {
-                        ArchivoTmp.WriteLine("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}",
-                            usu.Rut.Trim(), usu.Nombre.Trim(), usu.ApellidoPaterno.Trim(), usu.ApellidoMaterno.Trim(), usu.Correo.Trim(), usu.Telefono, usu.NomUsuario.Trim(), util.GetMD5Hash(usu.Contrasena.Trim()), usu.FechaNacimiento, usu.Estado);
-                    }
-                    else
-                    {
-                        ArchivoTmp.WriteLine(linea, Encoding.UTF8);
-                    }
-                }
-            } while (linea != null);
-            Archivo.Close();
-            ArchivoTmp.Close();
-
-            try
-            {
-                File.Delete(path);
+                cmd.CommandText = "INSERT INTO USUARIO (idUsuario, nombreUsuario, emailUsuario, rutUsuario, usuario, clave, estadoUsuario, TipoUsuarioIdTipoUsuario) " +
+                    "VALUES (0, @nomUsu, @emailUsu, @rutUsu, @usu, @clave, @estadoUsu, @tipoUsuId)";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cone.con;
+                cmd.Parameters.Add("@nomUsu", MySqlDbType.VarChar).Value = usu.Nombre;
+                cmd.Parameters.Add("@emailUsu", MySqlDbType.VarChar).Value = usu.Correo;
+                cmd.Parameters.Add("@rutUsu", MySqlDbType.VarChar).Value = usu.Rut;
+                cmd.Parameters.Add("@usu", MySqlDbType.VarChar).Value = usu.NomUsuario;
+                cmd.Parameters.Add("@clave", MySqlDbType.VarChar).Value = usu.Contrasena;
+                cmd.Parameters.Add("@estadoUsu", MySqlDbType.VarChar).Value = usu.Estado;
+                cmd.Parameters.Add("@tipoUsuId", MySqlDbType.Int32).Value = usu.IdTipoUsuario;
+                cmd.ExecuteNonQuery();
+                cone.con.Close();
             }
-            catch (System.IO.IOException e)
-            {
-                Console.WriteLine(e.Message);
-                return;
-            }
-            File.Move("Archivos/UsuariosTmp.txt", path);
+
         }
 
-        public List<Usuario> Mostrar()
+        public void Modificar(Usuario usu)
         {
-            StreamReader Archivo = File.OpenText(path);
-            string linea;
-            List<Usuario> usuarios = new List<Usuario>();
-            do
+            ConexionMysql cone = new ConexionMysql();
+            cone.conectar().Open();
+            using (MySqlCommand cmd = new MySqlCommand())
             {
-                linea = Archivo.ReadLine();
-                if (linea != null)
-                {
-                    string[] datos = linea.Split(';');
-                    Usuario usuario = new Usuario(datos[0], datos[1], datos[2], datos[3], datos[4], int.Parse(datos[5]), datos[6], datos[7], DateTime.Parse(datos[8]), int.Parse(datos[9]));
-                    usuarios.Add(usuario);
-                }
-            } while (linea != null);
-            Archivo.Close();
-            return usuarios;
+
+                cmd.CommandText = "UPDATE usuario SET nombreUsuario = @nomUsu, emailUsuario= @emailUsu, rutUsuario = @rutUsu, usuario = @usu, clave = @clave," +
+                    " estadoUsuario = @estadoUsu, TipoUsuarioIdTipoUsuario = @tipoUsuId WHERE idUsuario = @idUsu";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cone.con;
+                cmd.Parameters.Add("@idUsu", MySqlDbType.Int32).Value = usu.IdUsuario;
+                cmd.Parameters.Add("@nomUsu", MySqlDbType.VarChar).Value = usu.Nombre;
+                cmd.Parameters.Add("@emailUsu", MySqlDbType.VarChar).Value = usu.Correo;
+                cmd.Parameters.Add("@rutUsu", MySqlDbType.VarChar).Value = usu.Rut;
+                cmd.Parameters.Add("@usu", MySqlDbType.VarChar).Value = usu.NomUsuario;
+                cmd.Parameters.Add("@clave", MySqlDbType.VarChar).Value = usu.Contrasena;
+                cmd.Parameters.Add("@estadoUsu", MySqlDbType.VarChar).Value = usu.Estado;
+                cmd.Parameters.Add("@tipoUsuId", MySqlDbType.Int32).Value = usu.IdTipoUsuario;
+                cmd.ExecuteNonQuery();
+                cone.con.Close();
+            }
         }
 
-        public void Eliminar(string nomUsuario)
+        public DataTable dt = new DataTable();
+        private DataSet ds = new DataSet();
+        public void Mostrar()
         {
-            StreamReader Archivo = File.OpenText(path);
-            StreamWriter ArchivoTmp = new StreamWriter("Archivos/UsuariosTmp.txt", true);
-            string linea;
-            do
-            {
-                linea = Archivo.ReadLine();
-                if (linea!=null)
-                {
-                    string[] datos = linea.Split(';');
-                    if ((nomUsuario != datos[6]) && (linea != null))
-                    {
-                        ArchivoTmp.WriteLine(linea, Encoding.UTF8);
-                    }
-                }
-            } while (linea != null);
-            Archivo.Close();
-            ArchivoTmp.Close();
 
-            try
+            ConexionMysql cone = new ConexionMysql();
+            dt.Clear();
+            string sql = "select idUsuario, nombreUsuario, emailUsuario, rutUsuario, usuario, estadoUsuario, TipoUsuarioIdTipoUsuario from usuario where idUsuario!=1";
+            MySqlDataAdapter mda = new MySqlDataAdapter(sql, cone.conectar());
+            mda.Fill(ds);
+            dt = ds.Tables[0];
+        }
+
+        public void Filtrar(String nomUsuarioBuscar)
+        {
+            ConexionMysql cone = new ConexionMysql();
+            dt.Clear();
+            string sql = "select  idUsuario, nombreUsuario, emailUsuario, rutUsuario, usuario, estadoUsuario, TipoUsuarioIdTipoUsuario from usuario " +
+                "where usuario like ('%" + nomUsuarioBuscar + "%') and idUsuario!=1";
+            MySqlDataAdapter mda = new MySqlDataAdapter(sql, cone.conectar());
+            mda.Fill(ds);
+            dt = ds.Tables[0];
+        }
+
+        public void Eliminar(Usuario usuario)
+        {
+            ConexionMysql cone = new ConexionMysql();
+            cone.conectar().Open();
+            using (MySqlCommand cmd = new MySqlCommand())
             {
-                File.Delete(path);
+                cmd.CommandText = "DELETE from usuario Where idUsuario = @idUsuario";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cone.con;
+                cmd.Parameters.Add("@idUsuario", MySqlDbType.Int32).Value = usuario.IdUsuario;
+                cmd.ExecuteNonQuery();
+                cone.con.Close();
             }
-            catch (System.IO.IOException e)
-            {
-                Console.WriteLine(e.Message);
-                return;
-            }
-            File.Move("Archivos/UsuariosTmp.txt", path);
         }
     }
     

@@ -5,41 +5,25 @@ namespace TKG_Inventario.DTO
     public class Administrator : Cuenta
     {
 
-        private DateTime fechaInicioTrabajo;
-
-        public Administrator(string nomUsuario) : base(nomUsuario)
+        public Administrator(int idUsuario) : base(idUsuario)
         {
-            base.Nombre = nomUsuario;
+            base.IdUsuario = idUsuario;
         }
 
-        public Administrator(string nomUsuario,DateTime fechaInicioTrabajo) : base(nomUsuario)
-        {
-            base.NomUsuario=nomUsuario;
-            this.fechaInicioTrabajo = fechaInicioTrabajo;
-        }
 
-        public Administrator(string rut, string nombre, string apellidoPaterno, string apellidoMaterno, string correo, int telefono, string nomUsuario, string contrasena, DateTime fechaNacimiento, int estado, DateTime fechaInicioTrabajo)
-            : base(rut, nombre, apellidoPaterno, apellidoMaterno, correo, telefono, nomUsuario, contrasena, fechaNacimiento, estado)
+        public Administrator(int idUsuario,string rut, string nombre, string correo, string nomUsuario, string contrasena, string estado, int idTipoUsuario)
+            : base(idUsuario,rut, nombre, correo, nomUsuario, contrasena, estado,idTipoUsuario)
         {
+            base.IdUsuario = idUsuario;
             base.Rut = rut;
             base.Nombre = nombre;
-            base.ApellidoPaterno = apellidoPaterno;
-            base.ApellidoMaterno = apellidoMaterno;
             base.Correo = correo;
-            base.Telefono = telefono;
             base.NomUsuario = nomUsuario;
             base.Contrasena = contrasena;
-            base.FechaNacimiento = fechaNacimiento;
             base.Estado = estado;
-            this.FechaInicioTrabajo = fechaInicioTrabajo;
+            base.IdTipoUsuario = idTipoUsuario;
         }
 
-        public DateTime FechaInicioTrabajo { get => fechaInicioTrabajo; set => fechaInicioTrabajo = value; }
-
-        public override string ToString()
-        {
-            return base.ToString() + " Fecha inicio Trabajo : "+this.fechaInicioTrabajo;
-        }
     }
 
 }
