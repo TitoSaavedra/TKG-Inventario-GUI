@@ -30,7 +30,6 @@ C:\Users\TitoS\Documents\Inventario TKG GUI\TKG-Inventario-GUI\TKG Inventario\ob
 C:\Users\TitoS\Documents\Inventario TKG GUI\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG_Inventario.Vista.VentanaProducto.resources
 C:\Users\TitoS\Documents\Inventario TKG GUI\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG_Inventario.Vista.VentanaSistema.resources
 C:\Users\TitoS\Documents\Inventario TKG GUI\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG_Inventario.Vista.VentanaUsuario.resources
-C:\Users\I\Source\Repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG Inventario.csprojAssemblyReference.cache
 C:\Users\I\Source\Repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG Inventario.exe.config
 C:\Users\I\Source\Repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG_Inventario.Properties.Resources.resources
 C:\Users\I\Source\Repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG_Inventario.Vista.VentanaCompraProducto.resources
@@ -64,3 +63,5 @@ C:\Users\I\Source\Repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\bin\Debug
 C:\Users\I\Source\Repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\I\Source\Repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\bin\Debug\MySql.Data.xml
 C:\Users\I\Source\Repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG Inventario.csproj.CopyComplete
+C:\Users\I\source\repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG_Inventario.Vista.VentanaAuditoria.resources
+C:\Users\I\source\repos\TitoSaavedra\TKG-Inventario-GUI\TKG Inventario\obj\Debug\TKG Inventario.csproj.ResolveComReference.cache

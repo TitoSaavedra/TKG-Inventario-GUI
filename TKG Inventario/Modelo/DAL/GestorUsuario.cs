@@ -8,40 +8,41 @@ namespace TKG_Inventario.DAL
 {
     public class GestorUsuario
     {
-        /*
+       
         public Usuario Login(Usuario usuario)
         {
             ConexionMysql cone = new ConexionMysql();
             cone.conectar().Open();
-            using (MySqlCommand cmd = new MySqlCommand())
+            string sql = "select idUsuario, nombreUsuario, emailUsuario, rutUsuario, usuario, estadoUsuario, TipoUsuarioIdTipoUsuario from usuario where TipoUsuarioIdTipoUsuario=1 " +
+                "and usuario='"+usuario.NomUsuario+"' and clave='"+usuario.Contrasena+"'";   
+            MySqlCommand mycomand = new MySqlCommand(sql, cone.con);
+            MySqlDataReader reader = mycomand.ExecuteReader();
+            if (reader.Read())
             {
-                string sql = "select idUsuario, nombreUsuario, emailUsuario, rutUsuario, usuario, estadoUsuario, TipoUsuarioIdTipoUsuario from usuario where idUsuario=1 " +
-                    "and usuario="+usuario.NomUsuario+" and clave="+usuario.Contrasena;
-                MySqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                usuario.IdUsuario = int.Parse(reader["idUsuario"].ToString());
+                usuario.Rut = reader["rutUsuario"].ToString();
+                usuario.Nombre = reader["nombreUsuario"].ToString();
+                usuario.NomUsuario = reader["usuario"].ToString();
+                usuario.Correo = reader["emailUsuario"].ToString();
+                string estado = "";
+                switch (int.Parse(reader["estadoUsuario"].ToString()))
                 {
-                    usuario.IdUsuario = int.Parse(reader["idUsuario"].ToString());
-                    usuario.Rut = reader["rutUsuario"].ToString();
-                    usuario.Nombre = reader["nombreUsuario"].ToString();
-                    usuario.NomUsuario = reader["usuario"].ToString();
-                    string estado="";
-                    switch (int.Parse(reader["estadoUsuario"].ToString()))
-                    {
-                        case 1:
-                            estado = "Activo";
-                            break;
-                        case 2:
-                            estado = "Inactivo";
-                            break;
-                    } 
-                    usuario.Estado = estado;
-                    usuario.IdTipoUsuario= int.Parse(reader["TipoUsuarioIdTipoUsuario"].ToString());
-                    return usuario;
+                    case 1:
+                        estado = "Activo";
+                        break;
+                    case 2:
+                        estado = "Inactivo";
+                        break;
                 }
+                usuario.Estado = estado;
+                usuario.IdTipoUsuario = int.Parse(reader["TipoUsuarioIdTipoUsuario"].ToString());
+                cone.con.Close();
+                return usuario;
             }
+            cone.con.Close();
             return null;
         }
-        */
+       
 
         public void Ingresar(Usuario usu)
         {
@@ -63,7 +64,6 @@ namespace TKG_Inventario.DAL
                 cmd.ExecuteNonQuery();
                 cone.con.Close();
             }
-
         }
 
         public void Modificar(Usuario usu)
@@ -97,7 +97,7 @@ namespace TKG_Inventario.DAL
 
             ConexionMysql cone = new ConexionMysql();
             dt.Clear();
-            string sql = "select idUsuario, nombreUsuario, emailUsuario, rutUsuario, usuario, estadoUsuario, TipoUsuarioIdTipoUsuario from usuario where idUsuario!=1";
+            string sql = "select idUsuario, nombreUsuario, emailUsuario, rutUsuario, usuario, estadoUsuario, TipoUsuarioIdTipoUsuario from usuario where TipoUsuarioIdTipoUsuario!=1";
             MySqlDataAdapter mda = new MySqlDataAdapter(sql, cone.conectar());
             mda.Fill(ds);
             dt = ds.Tables[0];
@@ -108,22 +108,24 @@ namespace TKG_Inventario.DAL
             ConexionMysql cone = new ConexionMysql();
             dt.Clear();
             string sql = "select  idUsuario, nombreUsuario, emailUsuario, rutUsuario, usuario, estadoUsuario, TipoUsuarioIdTipoUsuario from usuario " +
-                "where usuario like ('%" + nomUsuarioBuscar + "%') and idUsuario!=1";
+                "where usuario like ('%" + nomUsuarioBuscar + "%') and TipoUsuarioIdTipoUsuario!=1";
             MySqlDataAdapter mda = new MySqlDataAdapter(sql, cone.conectar());
             mda.Fill(ds);
             dt = ds.Tables[0];
         }
 
-        public void Eliminar(Usuario usuario)
+        public void Eliminar(Usuario usu)
         {
             ConexionMysql cone = new ConexionMysql();
             cone.conectar().Open();
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                cmd.CommandText = "DELETE from usuario Where idUsuario = @idUsuario";
+
+                cmd.CommandText = "UPDATE usuario SET estadoUsuario = @estadoUsu WHERE idUsuario = @idUsu";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = cone.con;
-                cmd.Parameters.Add("@idUsuario", MySqlDbType.Int32).Value = usuario.IdUsuario;
+                cmd.Parameters.Add("@idUsu", MySqlDbType.Int32).Value = usu.IdUsuario;
+                cmd.Parameters.Add("@estadoUsu", MySqlDbType.Int32).Value = usu.Estado;
                 cmd.ExecuteNonQuery();
                 cone.con.Close();
             }

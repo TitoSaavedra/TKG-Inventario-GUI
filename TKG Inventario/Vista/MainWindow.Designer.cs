@@ -31,13 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelContenedorNombre = new System.Windows.Forms.Panel();
+            this.botonAuditoria = new FontAwesome.Sharp.IconButton();
             this.botonCerrarSesion = new FontAwesome.Sharp.IconButton();
             this.botonCrudCompraProductos = new FontAwesome.Sharp.IconButton();
             this.botonCrudProductos = new FontAwesome.Sharp.IconButton();
             this.botonCrudFamiliaProductos = new FontAwesome.Sharp.IconButton();
             this.botonCrudUsuarios = new FontAwesome.Sharp.IconButton();
             this.botonSistema = new FontAwesome.Sharp.IconButton();
-            this.panelContenedorNombre = new System.Windows.Forms.Panel();
             this.iconoMenu = new FontAwesome.Sharp.IconPictureBox();
             this.panelMenu.SuspendLayout();
             this.panelContenedorNombre.SuspendLayout();
@@ -56,6 +57,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.panelMenu.Controls.Add(this.botonAuditoria);
             this.panelMenu.Controls.Add(this.botonCerrarSesion);
             this.panelMenu.Controls.Add(this.botonCrudCompraProductos);
             this.panelMenu.Controls.Add(this.botonCrudProductos);
@@ -70,13 +72,45 @@
             this.panelMenu.Size = new System.Drawing.Size(250, 620);
             this.panelMenu.TabIndex = 0;
             // 
+            // panelContenedorNombre
+            // 
+            this.panelContenedorNombre.Controls.Add(this.iconoMenu);
+            this.panelContenedorNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelContenedorNombre.Location = new System.Drawing.Point(0, 0);
+            this.panelContenedorNombre.Name = "panelContenedorNombre";
+            this.panelContenedorNombre.Size = new System.Drawing.Size(250, 130);
+            this.panelContenedorNombre.TabIndex = 0;
+            // 
+            // botonAuditoria
+            // 
+            this.botonAuditoria.Dock = System.Windows.Forms.DockStyle.Top;
+            this.botonAuditoria.FlatAppearance.BorderSize = 0;
+            this.botonAuditoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonAuditoria.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.botonAuditoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonAuditoria.IconChar = FontAwesome.Sharp.IconChar.Cogs;
+            this.botonAuditoria.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.botonAuditoria.IconSize = 30;
+            this.botonAuditoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.botonAuditoria.Location = new System.Drawing.Point(0, 430);
+            this.botonAuditoria.Margin = new System.Windows.Forms.Padding(3, 10, 3, 5);
+            this.botonAuditoria.Name = "botonAuditoria";
+            this.botonAuditoria.Rotation = 0D;
+            this.botonAuditoria.Size = new System.Drawing.Size(250, 60);
+            this.botonAuditoria.TabIndex = 11;
+            this.botonAuditoria.Text = "Auditoria";
+            this.botonAuditoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.botonAuditoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.botonAuditoria.UseVisualStyleBackColor = true;
+            this.botonAuditoria.Click += new System.EventHandler(this.botonAuditoria_Click);
+            // 
             // botonCerrarSesion
             // 
             this.botonCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.botonCerrarSesion.FlatAppearance.BorderSize = 0;
             this.botonCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonCerrarSesion.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.botonCerrarSesion.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonCerrarSesion.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.botonCerrarSesion.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.botonCerrarSesion.IconSize = 30;
@@ -99,7 +133,7 @@
             this.botonCrudCompraProductos.FlatAppearance.BorderSize = 0;
             this.botonCrudCompraProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonCrudCompraProductos.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.botonCrudCompraProductos.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonCrudCompraProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonCrudCompraProductos.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
             this.botonCrudCompraProductos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.botonCrudCompraProductos.IconSize = 30;
@@ -122,7 +156,7 @@
             this.botonCrudProductos.FlatAppearance.BorderSize = 0;
             this.botonCrudProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonCrudProductos.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.botonCrudProductos.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonCrudProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonCrudProductos.IconChar = FontAwesome.Sharp.IconChar.Box;
             this.botonCrudProductos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.botonCrudProductos.IconSize = 30;
@@ -145,7 +179,7 @@
             this.botonCrudFamiliaProductos.FlatAppearance.BorderSize = 0;
             this.botonCrudFamiliaProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonCrudFamiliaProductos.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.botonCrudFamiliaProductos.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonCrudFamiliaProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonCrudFamiliaProductos.IconChar = FontAwesome.Sharp.IconChar.Boxes;
             this.botonCrudFamiliaProductos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.botonCrudFamiliaProductos.IconSize = 30;
@@ -168,7 +202,7 @@
             this.botonCrudUsuarios.FlatAppearance.BorderSize = 0;
             this.botonCrudUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonCrudUsuarios.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.botonCrudUsuarios.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonCrudUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonCrudUsuarios.IconChar = FontAwesome.Sharp.IconChar.Users;
             this.botonCrudUsuarios.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.botonCrudUsuarios.IconSize = 30;
@@ -191,7 +225,7 @@
             this.botonSistema.FlatAppearance.BorderSize = 0;
             this.botonSistema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonSistema.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.botonSistema.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botonSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonSistema.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.botonSistema.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.botonSistema.IconSize = 30;
@@ -207,15 +241,6 @@
             this.botonSistema.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.botonSistema.UseVisualStyleBackColor = true;
             this.botonSistema.Click += new System.EventHandler(this.botonSistema_Click);
-            // 
-            // panelContenedorNombre
-            // 
-            this.panelContenedorNombre.Controls.Add(this.iconoMenu);
-            this.panelContenedorNombre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelContenedorNombre.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedorNombre.Name = "panelContenedorNombre";
-            this.panelContenedorNombre.Size = new System.Drawing.Size(250, 130);
-            this.panelContenedorNombre.TabIndex = 0;
             // 
             // iconoMenu
             // 
@@ -260,5 +285,6 @@
         private FontAwesome.Sharp.IconButton botonCrudUsuarios;
         private FontAwesome.Sharp.IconButton botonSistema;
         private FontAwesome.Sharp.IconButton botonCerrarSesion;
+        private FontAwesome.Sharp.IconButton botonAuditoria;
     }
 }

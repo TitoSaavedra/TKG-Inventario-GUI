@@ -6,6 +6,10 @@ namespace TKG_Inventario.DTO
 {
     public class Usuario: Cuenta
     {
+        public Usuario()
+        {
+        }
+
         public Usuario(int idUsuario) : base(idUsuario)
         {
             base.IdUsuario = idUsuario;

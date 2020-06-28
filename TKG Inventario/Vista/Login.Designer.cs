@@ -81,7 +81,7 @@
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(15)))), ((int)(((byte)(12)))));
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(214, 415);
             this.btnLogin.MaximumSize = new System.Drawing.Size(350, 45);
@@ -100,13 +100,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(92)))), ((int)(((byte)(43)))));
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPass.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtPass.Location = new System.Drawing.Point(214, 348);
             this.txtPass.MaximumSize = new System.Drawing.Size(350, 23);
             this.txtPass.MinimumSize = new System.Drawing.Size(350, 23);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(350, 23);
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(350, 22);
             this.txtPass.TabIndex = 18;
             // 
             // Label2
@@ -115,7 +116,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label2.AutoSize = true;
-            this.Label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label2.ForeColor = System.Drawing.Color.Black;
             this.Label2.Location = new System.Drawing.Point(210, 324);
             this.Label2.MaximumSize = new System.Drawing.Size(106, 19);
@@ -132,13 +133,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(92)))), ((int)(((byte)(43)))));
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtUser.Location = new System.Drawing.Point(214, 288);
             this.txtUser.MaximumSize = new System.Drawing.Size(350, 23);
             this.txtUser.MinimumSize = new System.Drawing.Size(350, 23);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(350, 23);
+            this.txtUser.Size = new System.Drawing.Size(350, 22);
             this.txtUser.TabIndex = 16;
             // 
             // labelUusario
@@ -147,7 +148,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUusario.AutoSize = true;
-            this.labelUusario.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUusario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUusario.ForeColor = System.Drawing.Color.Black;
             this.labelUusario.Location = new System.Drawing.Point(210, 264);
             this.labelUusario.MaximumSize = new System.Drawing.Size(77, 19);
@@ -208,12 +209,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 330);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(404, 19);
+            this.label1.Size = new System.Drawing.Size(404, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "- Pablo Ahumada - Leandro Cruz - Tito Saavedra  -";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -223,12 +224,12 @@
             this.labelBienvenido.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.labelBienvenido.AutoSize = true;
             this.labelBienvenido.BackColor = System.Drawing.Color.Transparent;
-            this.labelBienvenido.Font = new System.Drawing.Font("Roboto", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBienvenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBienvenido.ForeColor = System.Drawing.Color.White;
-            this.labelBienvenido.Location = new System.Drawing.Point(74, 168);
+            this.labelBienvenido.Location = new System.Drawing.Point(74, 171);
             this.labelBienvenido.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.labelBienvenido.Name = "labelBienvenido";
-            this.labelBienvenido.Size = new System.Drawing.Size(262, 58);
+            this.labelBienvenido.Size = new System.Drawing.Size(262, 55);
             this.labelBienvenido.TabIndex = 0;
             this.labelBienvenido.Text = "Bienvenido";
             // 
@@ -238,12 +239,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelDescripcion.AutoSize = true;
             this.labelDescripcion.BackColor = System.Drawing.Color.Transparent;
-            this.labelDescripcion.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescripcion.ForeColor = System.Drawing.Color.White;
             this.labelDescripcion.Location = new System.Drawing.Point(3, 256);
             this.labelDescripcion.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.labelDescripcion.Name = "labelDescripcion";
-            this.labelDescripcion.Size = new System.Drawing.Size(404, 46);
+            this.labelDescripcion.Size = new System.Drawing.Size(404, 48);
             this.labelDescripcion.TabIndex = 1;
             this.labelDescripcion.Text = "SISTEMA DE GESTION Y CONTROL DE BODEGA E INVENTARIO";
             this.labelDescripcion.TextAlign = System.Drawing.ContentAlignment.TopCenter;

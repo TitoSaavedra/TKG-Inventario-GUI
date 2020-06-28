@@ -15,6 +15,10 @@ namespace TKG_Inventario.DTO
         private string estado;
         private int idTipoUsuario;
 
+        public Cuenta()
+        {
+        }
+
         public Cuenta(string nomUsuario)
         {
             this.NomUsuario = nomUsuario;

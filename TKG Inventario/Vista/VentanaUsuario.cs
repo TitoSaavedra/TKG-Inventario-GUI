@@ -3,6 +3,9 @@ using System;
 using System.Windows.Forms;
 using TKG_Inventario.DAL;
 using TKG_Inventario.DTO;
+using TKG_Inventario.Modelo.DAL;
+using TKG_Inventario.Modelo.DTO;
+using TKG_Inventario.Utils;
 
 namespace TKG_Inventario.Vista
 {
@@ -10,6 +13,7 @@ namespace TKG_Inventario.Vista
     {
         Utilidades utilidades = new Utilidades();
         GestorUsuario gestorUsuario = new GestorUsuario();
+        GestorAuditoria gestorAuditoria = new GestorAuditoria();
 
         public VentanaUsuario()
         {
@@ -25,7 +29,7 @@ namespace TKG_Inventario.Vista
                 if (txtClave.Text.Equals(txtClaveConf.Text))
                 {
                     GestorUsuario gestorUsuario = new GestorUsuario();
-                    int tipo = 0;
+                    int tipo = 0,estado=0;
                     switch (combTipoUsu.Text)
                     {
                         case "Administrador":
@@ -38,8 +42,19 @@ namespace TKG_Inventario.Vista
                             tipo = 4;
                             break;
                     }
-                    Usuario usuario = new Usuario(0, txtRut.Text, txtNombre.Text, txtCorreo.Text, txtNomUsu.Text, txtClave.Text, combEstado.Text, tipo);
+                    switch (combEstado.Text)
+                    {
+                        case "Activo":
+                            estado = 1;
+                            break;
+                        case "Inactivo":
+                            estado = 2;
+                            break;
+                    }
+                    Usuario usuario = new Usuario(0, txtRut.Text, txtNombre.Text, txtCorreo.Text, txtNomUsu.Text, utilidades.GetMD5Hash(txtClave.Text), estado+"", tipo);
                     gestorUsuario.Ingresar(usuario);
+                    Auditoria auditoria = new Auditoria(0, DateTime.Today, DateTime.Now.ToString("hh:mm:ss"), "", LoginSesion.IdUsuario);
+                    gestorAuditoria.IngresarAuditoria(1,1,auditoria);
                     MessageBox.Show("Registro exitoso");
                     Limpiar();
                 }
@@ -61,7 +76,10 @@ namespace TKG_Inventario.Vista
             {
                 GestorUsuario gestorUsuario = new GestorUsuario();
                 Usuario usuario = new Usuario(int.Parse(txtIdUsuario.Text));
+                usuario.Estado = ""+3;
                 gestorUsuario.Eliminar(usuario);
+                Auditoria auditoria = new Auditoria(0, DateTime.Today, DateTime.Now.ToString("hh:mm:ss"), "", LoginSesion.IdUsuario);
+                gestorAuditoria.IngresarAuditoria(1, 3, auditoria);
                 Limpiar();
             }
             else
@@ -74,33 +92,42 @@ namespace TKG_Inventario.Vista
         {
             if (ValidarCampos())
             {
-                int tipo = 0;
-                switch (combTipoUsu.Text)
+                if (txtClave.Text.Equals(txtClaveConf.Text))
                 {
-                    case "Administrador":
-                        tipo = 2;
-                        break;
-                    case "Bodequero":
-                        tipo = 3;
-                        break;
-                    case "Usuario":
-                        tipo = 4;
-                        break;
+                    int tipo = 0;
+                    switch (combTipoUsu.Text)
+                    {
+                        case "Administrador":
+                            tipo = 2;
+                            break;
+                        case "Bodequero":
+                            tipo = 3;
+                            break;
+                        case "Usuario":
+                            tipo = 4;
+                            break;
+                    }
+                    int estado = 0;
+                    switch (combEstado.Text)
+                    {
+                        case "Activo":
+                            estado = 1;
+                            break;
+                        case "Inactivo":
+                            estado = 2;
+                            break;
+                    }
+                    Usuario usu = new Usuario(int.Parse(txtIdUsuario.Text), txtRut.Text, txtNombre.Text, txtCorreo.Text, txtNomUsu.Text, txtClave.Text, estado + "", tipo);
+                    gestorUsuario.Modificar(usu);
+                    MessageBox.Show("Usuario modificado");
+                    Auditoria auditoria = new Auditoria(0, DateTime.Today, DateTime.Now.ToString("hh:mm:ss"), "", LoginSesion.IdUsuario);
+                    gestorAuditoria.IngresarAuditoria(1, 2, auditoria);
+                    Limpiar();
                 }
-                int estado = 0;
-                switch (combEstado.Text)
+                else
                 {
-                    case "Activo":
-                        estado = 1;
-                        break;
-                    case "Inactivo":
-                        estado = 2;
-                        break;
+                    MessageBox.Show("Las contraseñas no coinciden");
                 }
-                Usuario usu = new Usuario(int.Parse(txtIdUsuario.Text), txtRut.Text, txtNombre.Text, txtCorreo.Text, txtNomUsu.Text, txtClave.Text, estado + "", tipo);
-                gestorUsuario.Modificar(usu);
-                MessageBox.Show("Usuario modificado");
-                Limpiar();
             }
             else
             {
@@ -140,6 +167,9 @@ namespace TKG_Inventario.Vista
                     case 2:
                         estado = "Inactivo";
                         break;
+                    case 3:
+                        estado = "Eliminado";
+                        break;
                 }
                 txtIdUsuario.Text = (dtaGridUsuario.Rows[e.RowIndex].Cells[0].Value.ToString());
                 txtNombre.Text = (dtaGridUsuario.Rows[e.RowIndex].Cells[1].Value.ToString());
@@ -162,7 +192,7 @@ namespace TKG_Inventario.Vista
          */
         private void txtRut_KeyPress(object sender, KeyPressEventArgs e)
         {
-            utilidades.LetterNumber(3, txtRut.Text.Length, 10, e);
+            utilidades.LetterNumber(3, txtRut.Text.Length, 9, e);
         }
 
         private void txtNomUsu_KeyPress(object sender, KeyPressEventArgs e)
@@ -190,6 +220,20 @@ namespace TKG_Inventario.Vista
             dtaGridUsuario.DataSource = null;
             gestorUsuario.Filtrar(txtBuscarNomUsu.Text);
             dtaGridUsuario.DataSource = gestorUsuario.dt;
+            dtaGridUsuario.Columns[0].Width = 40;
+            dtaGridUsuario.Columns[1].Width = 100;
+            dtaGridUsuario.Columns[2].Width = 200;
+            dtaGridUsuario.Columns[3].Width = 120;
+            dtaGridUsuario.Columns[4].Width = 150;
+            dtaGridUsuario.Columns[5].Width = 80;
+            dtaGridUsuario.Columns[6].Width = 80;
+            dtaGridUsuario.Columns[0].HeaderText = "ID";
+            dtaGridUsuario.Columns[1].HeaderText = "Nombre";
+            dtaGridUsuario.Columns[2].HeaderText = "Correo";
+            dtaGridUsuario.Columns[3].HeaderText = "Rut";
+            dtaGridUsuario.Columns[4].HeaderText = "Usuario";
+            dtaGridUsuario.Columns[5].HeaderText = "Estado";
+            dtaGridUsuario.Columns[6].HeaderText = "Tipo";
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -257,6 +301,20 @@ namespace TKG_Inventario.Vista
             dtaGridUsuario.DataSource = null;
             gestorUsuario.Mostrar();
             dtaGridUsuario.DataSource = gestorUsuario.dt;
+            dtaGridUsuario.Columns[0].Width = 40;
+            dtaGridUsuario.Columns[1].Width = 100;
+            dtaGridUsuario.Columns[2].Width = 200;
+            dtaGridUsuario.Columns[3].Width = 120;
+            dtaGridUsuario.Columns[4].Width = 150;
+            dtaGridUsuario.Columns[5].Width = 80;
+            dtaGridUsuario.Columns[6].Width = 80;
+            dtaGridUsuario.Columns[0].HeaderText = "ID";
+            dtaGridUsuario.Columns[1].HeaderText = "Nombre";
+            dtaGridUsuario.Columns[2].HeaderText = "Correo";
+            dtaGridUsuario.Columns[3].HeaderText = "Rut";
+            dtaGridUsuario.Columns[4].HeaderText = "Usuario";
+            dtaGridUsuario.Columns[5].HeaderText = "Estado";
+            dtaGridUsuario.Columns[6].HeaderText = "Tipo";
         }
 
         private void Limpiar()

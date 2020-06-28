@@ -52,17 +52,41 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtNomUsu = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelMensaje = new System.Windows.Forms.Label();
             this.txtBuscarNomUsu = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtaGridUsuario = new System.Windows.Forms.DataGridView();
+            this.labelMensaje = new System.Windows.Forms.Label();
             btnRegistrarUsuario = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtaGridUsuario)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnRegistrarUsuario
+            // 
+            btnRegistrarUsuario.AutoSize = true;
+            btnRegistrarUsuario.BackColor = System.Drawing.Color.Lime;
+            btnRegistrarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnRegistrarUsuario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            btnRegistrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnRegistrarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            btnRegistrarUsuario.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            btnRegistrarUsuario.IconColor = System.Drawing.Color.Black;
+            btnRegistrarUsuario.IconSize = 32;
+            btnRegistrarUsuario.Location = new System.Drawing.Point(10, 3);
+            btnRegistrarUsuario.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            btnRegistrarUsuario.Name = "btnRegistrarUsuario";
+            btnRegistrarUsuario.Rotation = 0D;
+            btnRegistrarUsuario.Size = new System.Drawing.Size(213, 42);
+            btnRegistrarUsuario.TabIndex = 29;
+            btnRegistrarUsuario.Text = "Ingresar";
+            btnRegistrarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            btnRegistrarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            btnRegistrarUsuario.UseVisualStyleBackColor = false;
+            btnRegistrarUsuario.Click += new System.EventHandler(this.btnRegistrarUsuario_Click);
             // 
             // txtRut
             // 
@@ -444,17 +468,6 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Nombre de usuario:";
             // 
-            // labelMensaje
-            // 
-            this.labelMensaje.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMensaje.Location = new System.Drawing.Point(0, 579);
-            this.labelMensaje.Name = "labelMensaje";
-            this.labelMensaje.Size = new System.Drawing.Size(950, 41);
-            this.labelMensaje.TabIndex = 30;
-            this.labelMensaje.Text = "Usuario / Creado / Modificado / Eliminado";
-            this.labelMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtBuscarNomUsu
             // 
             this.txtBuscarNomUsu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(92)))), ((int)(((byte)(43)))));
@@ -508,29 +521,16 @@
             this.dtaGridUsuario.TabIndex = 37;
             this.dtaGridUsuario.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtaGridUsuario_CellMouseClick);
             // 
-            // btnRegistrarUsuario
+            // labelMensaje
             // 
-            btnRegistrarUsuario.AutoSize = true;
-            btnRegistrarUsuario.BackColor = System.Drawing.Color.Lime;
-            btnRegistrarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            btnRegistrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnRegistrarUsuario.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            btnRegistrarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btnRegistrarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            btnRegistrarUsuario.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            btnRegistrarUsuario.IconColor = System.Drawing.Color.Black;
-            btnRegistrarUsuario.IconSize = 32;
-            btnRegistrarUsuario.Location = new System.Drawing.Point(10, 3);
-            btnRegistrarUsuario.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            btnRegistrarUsuario.Name = "btnRegistrarUsuario";
-            btnRegistrarUsuario.Rotation = 0D;
-            btnRegistrarUsuario.Size = new System.Drawing.Size(213, 42);
-            btnRegistrarUsuario.TabIndex = 29;
-            btnRegistrarUsuario.Text = "Ingresar";
-            btnRegistrarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            btnRegistrarUsuario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            btnRegistrarUsuario.UseVisualStyleBackColor = false;
-            btnRegistrarUsuario.Click += new System.EventHandler(this.btnRegistrarUsuario_Click);
+            this.labelMensaje.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMensaje.Location = new System.Drawing.Point(0, 579);
+            this.labelMensaje.Name = "labelMensaje";
+            this.labelMensaje.Size = new System.Drawing.Size(950, 41);
+            this.labelMensaje.TabIndex = 30;
+            this.labelMensaje.Text = "Usuario / Creado / Modificado / Eliminado";
+            this.labelMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // VentanaUsuario
             // 
@@ -579,7 +579,6 @@
         internal System.Windows.Forms.Label label4;
         internal System.Windows.Forms.TextBox txtCorreo;
         internal System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label labelMensaje;
         internal System.Windows.Forms.TextBox txtBuscarNomUsu;
         internal System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -587,5 +586,6 @@
         private System.Windows.Forms.ComboBox combTipoUsu;
         private System.Windows.Forms.DataGridView dtaGridUsuario;
         private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.Label labelMensaje;
     }
 }

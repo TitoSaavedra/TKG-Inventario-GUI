@@ -19,6 +19,7 @@ namespace TKG_Inventario.Vista
         VentanaFamiliaProducto ventanaFamiliaProducto = new VentanaFamiliaProducto();
         VentanaProducto ventanaProducto = new VentanaProducto();
         VentanaCompraProducto ventanaCompraProducto = new VentanaCompraProducto();
+        VentanaAuditoria ventanaAuditoria = new VentanaAuditoria();
 
         public MainWindow()
         {
@@ -71,6 +72,7 @@ namespace TKG_Inventario.Vista
             this.botonCrudFamiliaProductos.Text = "";
             this.botonCrudProductos.Text = "";
             this.botonCrudCompraProductos.Text = "";
+            this.botonAuditoria.Text = "";
             this.botonCerrarSesion.Text = "";
 
         }
@@ -81,6 +83,7 @@ namespace TKG_Inventario.Vista
             this.botonCrudFamiliaProductos.Text = "Familia Productos";
             this.botonCrudProductos.Text = "Productos";
             this.botonCrudCompraProductos.Text = "Compra Productos";
+            this.botonAuditoria.Text = "Auditoria";
             this.botonCerrarSesion.Text = "Cerrar Sesión";
         }
         private void botonSistema_Click(object sender, EventArgs e)
@@ -128,6 +131,15 @@ namespace TKG_Inventario.Vista
             }
         }
 
+        private void botonAuditoria_Click(object sender, EventArgs e)
+        {
+            if (!(this.panelContenedor.Contains(this.ventanaAuditoria)))
+            {
+                this.cambiaColorBoton(this.botonAuditoria);
+                this.AbrirFormEnPanel(this.ventanaAuditoria);
+            }
+        }
+
         private void cambiaColorBoton(IconButton btn)
         {
             resetColorBotones();
@@ -151,6 +163,11 @@ namespace TKG_Inventario.Vista
             //boton compra productos
             this.botonCrudCompraProductos.ForeColor = Color.FromArgb(255, 255, 255);
             this.botonCrudCompraProductos.IconColor = Color.FromArgb(255, 255, 255);
+            //boton auditoria
+            this.botonAuditoria.ForeColor = Color.FromArgb(255, 255, 255);
+            this.botonAuditoria.IconColor = Color.FromArgb(255, 255, 255);
         }
+
+   
     }
 }
