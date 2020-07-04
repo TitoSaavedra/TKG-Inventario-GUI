@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modelo\ConexionMysql.cs" />
+    <Compile Include="Modelo\ConexionSqlServer.cs" />
     <Compile Include="Modelo\DAL\GestorAdministrador.cs" />
     <Compile Include="Modelo\DAL\GestorAuditoria.cs" />
     <Compile Include="Modelo\DAL\GestorBodequero.cs" />

@@ -1,153 +1,138 @@
 ﻿using Inventario;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Text;
 using TKG_Inventario.DTO;
+using TKG_Inventario.Modelo;
+using System.Windows.Forms;
+
 
 namespace TKG_Inventario.DAL
 {
     public class GestorProducto
     {
+        public DataTable dt = new DataTable();
+        private DataSet ds = new DataSet();
 
-        /* Atributos Producto
-
-        private string codProducto;
-        private string nombre;
-        private int precio;
-        private int cantTotal;
-        private int cantDisponible;
-        private string lugarGuardado;
-        private FamiliaProducto familiaProducto;
-        private int estado;
-          */
-        private static string path = "Archivos/Productos.txt";
-        private static Utilidades util = new Utilidades();
-        private GestorFamiliaProducto gestorFamiliaProducto = new GestorFamiliaProducto();
-
-        public void IngresarProducto(Producto producto)
+        public DataTable seleccionar() //ComboBox cb
         {
-            StreamWriter Archivo = new StreamWriter(path, true);
-            Archivo.WriteLine("{0};{1};{2};{3};{4};{5};{6};{7}", producto.CodProducto, producto.Nombre, producto.Precio, producto.CantTotal, producto.CantDisponible, producto.LugarGuardado, producto.FamiliaProducto.IdFamiliaProducto, producto.Estado);
-            Archivo.Close();
+            //cb.Items.Clear();
+            ConexionSqlServer cone = new ConexionSqlServer();
+            cone.conectar().Open();
 
-        }
-
-        public Producto BuscarProducto(String codProducto)
-        {
-            StreamReader Archivo = File.OpenText(path);
-            string linea;
-            do
+            using (SqlCommand cmd = new SqlCommand())
             {
-                linea = Archivo.ReadLine();
-                if (linea != null)
+                cmd.CommandText = "SELECT * FROM FamiliaProducto";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cone.con;
+                using (SqlDataReader dr = cmd.ExecuteReader())
                 {
-                    string[] datos = linea.Split(';');
-                    if (datos[0] == codProducto)
-                    {
-                        Producto p = new Producto(datos[0], datos[1], int.Parse(datos[2]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5], gestorFamiliaProducto.BuscarPorId(new FamiliaProducto(int.Parse(datos[6]), "", "")), int.Parse(datos[7]));
-                        Archivo.Close();
-                        return p;
-                    }
+                    dt.Load(dr);
+                    //while (dr.Read())
+                    //{
+                    //    cb.Items.Add(dr[0].ToString());
+                    //    cb.Items.Add(dr[1].ToString());
+                    //    cb.Items.Add(dr[2].ToString());
+                    //}
                 }
-            } while (linea != null);
-            Archivo.Close();
-            return null;
+                cone.con.Close();
+                return dt;
+                //cb.Items.Insert(0, "Seleccione");
+                //cb.SelectedIndex = 0;
+            }
         }
 
-        public void ModificarProducto(Producto producto, Producto productoAntiguo)
+        /*------------------------------ CREATE ------------------------------*/
+        public void Ingresar(Producto prod)
         {
-            StreamReader Archivo = File.OpenText(path);
-            StreamWriter ArchivoTmp = new StreamWriter("Archivos/ProductoTmp.txt", true);
-            string linea;
-            do
+            ConexionSqlServer cone = new ConexionSqlServer();
+            cone.conectar().Open();
+            using (SqlCommand cmd = new SqlCommand())
             {
-                linea = Archivo.ReadLine();
-                if (linea != null)
-                {
-                    string[] datos = linea.Split(';');
-                    if ((productoAntiguo.CodProducto == datos[0]) && (linea != null))
-                    {
-                        ArchivoTmp.WriteLine("{0};{1};{2};{3};{4};{5};{6};{7}", producto.CodProducto, producto.Nombre, producto.Precio, producto.CantTotal, producto.CantDisponible, producto.LugarGuardado, producto.FamiliaProducto.IdFamiliaProducto, producto.Estado);
-                    }
-                    else
-                    {
-                        ArchivoTmp.WriteLine(linea, Encoding.UTF8);
-                    }
-                }
-            } while (linea != null);
-            Archivo.Close();
-            ArchivoTmp.Close();
+                cmd.CommandText = "INSERT INTO Producto (nombre, precio, stock, estadoProducto, idFamiliaProducto) " +
+                    "VALUES (@nombre,@precio,@stock,@estadoProducto,@idFamiliaProducto)";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cone.con;
+                cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = prod.Nombre;
+                cmd.Parameters.Add("@precio", SqlDbType.Int).Value = prod.Precio;
+                cmd.Parameters.Add("@stock", SqlDbType.Int).Value = prod.Stock;
+                cmd.Parameters.Add("@estadoProducto", SqlDbType.VarChar).Value = prod.EstadoProducto;
+                cmd.Parameters.Add("@idFamiliaProducto", SqlDbType.Int).Value = prod.IdFamiliaProducto;
 
-            try
-            {
-                File.Delete(path);
+                cmd.ExecuteNonQuery();
+                cone.con.Close();
             }
-            catch (System.IO.IOException e)
-            {
-                Console.WriteLine(e.Message);
-                return;
-            }
-            File.Move("Archivos/ProductoTmp.txt", path);
         }
 
-        public void EliminarProducto(string codigoProducto)
+        /*------------------------------ READ ------------------------------*/
+        public void Mostrar()
         {
-            StreamReader Archivo = File.OpenText(path);
-            StreamWriter ArchivoTmp = new StreamWriter("Archivos/Respaldo/Productos.txt", true);
-            string linea;
-            do
-            {
-                linea = Archivo.ReadLine();
-                if (linea != null)
-                {
-                    string[] datos = linea.Split(';');
-                    if ((codigoProducto != datos[0]) && (linea != null))
-                    {
-                        ArchivoTmp.WriteLine(linea, Encoding.UTF8);
-                    }
-                }
-            } while (linea != null);
-            Archivo.Close();
-            ArchivoTmp.Close();
-
-            try
-            {
-                File.Delete(path);
-            }
-            catch (System.IO.IOException e)
-            {
-                Console.WriteLine(e.Message);
-                return;
-            }
-            File.Move("Archivos/Respaldo/Productos.txt", path);
+            ConexionSqlServer cone = new ConexionSqlServer();
+            dt.Clear();
+            string sql = "select idProducto as ID, nombre as Nombre, precio as Precio, stock as Stock, estadoProducto as Estado, nombreFamiliaProducto as Familia from Producto inner join FamiliaProducto on Producto.idFamiliaProducto = FamiliaProducto.idFamiliaProducto";
+            SqlDataAdapter mda = new SqlDataAdapter(sql, cone.conectar());
+            mda.Fill(ds);
+            dt = ds.Tables[0];
         }
 
-        public List<Producto> Mostrar()
+        /*------------------------------ UPDATE ------------------------------*/
+        public void Modificar(Producto prod)
         {
-            StreamReader Archivo = File.OpenText(path);
-            string linea;
-            List<Producto> productos = new List<Producto>();
-            do
+            ConexionSqlServer cone = new ConexionSqlServer();
+            cone.conectar().Open();
+            using (SqlCommand cmd = new SqlCommand())
             {
-                linea = Archivo.ReadLine();
-                if (linea != null)
-                {
-                    string[] datos = linea.Split(';');
-                    Producto producto = new Producto(datos[0], datos[1], int.Parse(datos[2]), int.Parse(datos[3]), int.Parse(datos[4]), datos[5], gestorFamiliaProducto.BuscarPorId(new FamiliaProducto(int.Parse(datos[6]), "", "")), int.Parse(datos[7]));
-                    if (producto.FamiliaProducto == null)
-                    {
 
-                        FamiliaProducto familiaSinAsignar = new FamiliaProducto(0, "Sin Familia", " ");
-                        producto.FamiliaProducto = familiaSinAsignar;
-                    }
-                    productos.Add(producto);
-                }
-            } while (linea != null);
-            Archivo.Close();
-            return productos;
+                cmd.CommandText = "UPDATE Producto SET nombre = @nombre, precio = @precio, stock = @stock, estadoProducto = @estadoProducto, idFamiliaProducto = @idFamiliaProducto " +
+                    "WHERE idProducto = @id";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cone.con;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = prod.IdProducto;
+                cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = prod.Nombre;
+                cmd.Parameters.Add("@precio", SqlDbType.Int).Value = prod.Precio;
+                cmd.Parameters.Add("@stock", SqlDbType.Int).Value = prod.Stock;
+                cmd.Parameters.Add("@estadoProducto", SqlDbType.VarChar).Value = prod.EstadoProducto;
+                cmd.Parameters.Add("@idFamiliaProducto", SqlDbType.Int).Value = prod.IdFamiliaProducto;
+                
+                cmd.ExecuteNonQuery();
+                cone.con.Close();
+            }
         }
 
+        /*------------------------------ DELETE ------------------------------*/
+        public void Eliminar(Producto prod)
+        {
+            ConexionSqlServer cone = new ConexionSqlServer();
+            cone.conectar().Open();
+            using (SqlCommand cmd = new SqlCommand())
+            {
 
+                cmd.CommandText = "DELETE from Producto " +
+                    "Where idProducto = @id";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cone.con;
+
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = prod.IdProducto;
+
+                cmd.ExecuteNonQuery();
+                cone.con.Close();
+            }
+        }
+
+        /*------------------------------ FILTER ------------------------------*/
+        public void Filtrar(String buscar)
+        {
+            ConexionSqlServer cone = new ConexionSqlServer();
+            dt.Clear();
+
+            //string sql = "select * from Producto " +
+            string sql = "select idProducto as ID, nombre as Nombre, precio as Precio, stock as Stock, estadoProducto as Estado, nombreFamiliaProducto as Familia from Producto inner join FamiliaProducto on Producto.idFamiliaProducto = FamiliaProducto.idFamiliaProducto " +
+                "where nombre like ('%" + buscar + "%')";
+            SqlDataAdapter mda = new SqlDataAdapter(sql, cone.conectar());
+            mda.Fill(ds); dt = ds.Tables[0];
+        }
     }
 }

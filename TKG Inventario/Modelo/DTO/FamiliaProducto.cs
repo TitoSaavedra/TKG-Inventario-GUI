@@ -7,24 +7,18 @@ namespace TKG_Inventario.DTO
     public class FamiliaProducto
     {
         private int idFamiliaProducto;
-        private string nombre;
-        private string descripcion;
+        private string nombreFamiliaProducto;
+        private string estadoFamiliaProducto;
 
-        public FamiliaProducto(int idFamiliaProducto, string nombre, string descripcion)
+        public FamiliaProducto(int idFamiliaProducto, string nombreFamiliaProducto, string estadoFamiliaProducto)
         {
-            this.IdFamiliaProducto = idFamiliaProducto;
-            this.Nombre = nombre;
-            this.Descripcion = descripcion;
+            this.idFamiliaProducto = idFamiliaProducto;
+            this.nombreFamiliaProducto = nombreFamiliaProducto;
+            this.estadoFamiliaProducto = estadoFamiliaProducto;
         }
 
         public int IdFamiliaProducto { get => idFamiliaProducto; set => idFamiliaProducto = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Descripcion { get => descripcion; set => descripcion = value; }
-
-        public override string ToString()
-        {
-            return "Id Familia Producto : ";
-        }
-
+        public string NombreFamiliaProducto { get => nombreFamiliaProducto; set => nombreFamiliaProducto = value; }
+        public string EstadoFamiliaProducto { get => estadoFamiliaProducto; set => estadoFamiliaProducto = value; }
     }
 }

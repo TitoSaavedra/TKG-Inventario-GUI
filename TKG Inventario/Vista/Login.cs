@@ -31,7 +31,7 @@ namespace TKG_Inventario.Vista
         }
         private void botonIniciarSesion_Click(object sender, EventArgs e)
         {
-            if (txtUser.Text!="" && txtPass.Text!="")
+            if (txtUser.Text != "" && txtPass.Text != "")
             {
                 GestorUsuario gestorUsuario = new GestorUsuario();
                 Utilidades utilidades = new Utilidades();
